@@ -1,0 +1,44 @@
+{
+  "name": "inversify-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register test/**/*.ts",
+    "build": "npm run build-ts",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/index.js",
+    "watch": "concurrently -k -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch-ts\" \"npm run watch-node\" ",
+    "watch-debug": "concurrently -k -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch-ts\" \"npm run serve-debug\" ",
+    "start": "npm run serve",
+    "serve": "node dist/index.js",
+    "serve-debug": "nodemon --inspect dist/index.js",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "author": "masterchief",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv-extended": "^2.3.0",
+    "inversify": "^4.13.0",
+    "reflect-metadata": "^0.1.12",
+    "winston": "^3.1.0"
+  },
+  "engines": {
+    "node": "8.9.0",
+    "npm": "6.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^9.6.7",
+    "chai": "^4.2.0",
+    "concurrently": "^4.0.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "ts-mockito": "^2.3.1",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  }
+}
